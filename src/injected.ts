@@ -1382,6 +1382,7 @@ const injectDarkMode = () => {
             background-color: var(--color-dark);
             color: white;
         }
+<<<<<<< HEAD
         body.dark-mode .rcx-message-reactions__reaction {
             border-color: var(--color-dark);
         }
@@ -1391,6 +1392,8 @@ const injectDarkMode = () => {
         }
 
 
+=======
+>>>>>>> 5845838b006db04ae54b705bf521c6a3a7f48f09
 
         body.dark-mode .rcx-message-toolbox {
             background-color: var(--color-dark-medium);
@@ -1568,4 +1571,8 @@ const injectDarkMode = () => {
         $(addDarkModeToggle);
   }
   start();
+<<<<<<< HEAD
   injectDarkMode()
+=======
+  injectDarkMode()
+>>>>>>> 5845838b006db04ae54b705bf521c6a3a7f48f09
