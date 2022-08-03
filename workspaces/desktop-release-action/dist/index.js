@@ -16477,7 +16477,7 @@ const uploadSnap = (snapFilePath, level) => linux_awaiter(void 0, void 0, void 0
 
 
 const disableSpotlightIndexing = () => core.group('Disable Spotlight indexing (to avoid errors of DMG generation)', () => run(`sudo mdutil -a -i off`));
-const packOnMacOS = () => runElectronBuilder(`--mac`, {
+const packOnMacOS = () => runElectronBuilder(`--mac --universal`, {
     CSC_LINK: core.getInput('mac_csc_link'),
     CSC_KEY_PASSWORD: core.getInput('mac_csc_key_password'),
     IS_PULL_REQUEST: 'false',
@@ -16499,11 +16499,11 @@ var windows_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _
 
 
 const packOnWindows = () => windows_awaiter(void 0, void 0, void 0, function* () {
-    yield runElectronBuilder(`--ia32 --x64 --win nsis msi`, {
+    yield runElectronBuilder(`--x64 --ia32 --win nsis msi`, {
         CSC_LINK: core.getInput('win_csc_link'),
         CSC_KEY_PASSWORD: core.getInput('win_csc_key_password'),
     });
-    yield runElectronBuilder(`--ia32 --x64 --win appx`);
+    yield runElectronBuilder(`--x64 --ia32 --win appx`);
 });
 
 ;// CONCATENATED MODULE: ./src/index.ts
@@ -16551,7 +16551,7 @@ const getFilesToUpload = () => out_default()([
     'dist/*.zip',
     'dist/*.dmg',
     'dist/*.dmg.blockmap',
-    'dist/mas/*.pkg',
+    'dist/mas-universal/*.pkg',
     'dist/latest.yml',
     'dist/*.appx',
     'dist/*.msi',
